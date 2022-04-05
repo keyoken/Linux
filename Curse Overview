@@ -1,75 +1,75 @@
-##  Course Overview
-Develop a good working knowledge of Linux using both the graphical interface and command
-line, covering the major Linux distribution families.
-Linux powers 100% of the world’s supercomputers, most of the servers powering the Internet,
-the majority of financial trades worldwide and a billion Android devices. In short, Linux is
-everywhere. It appears in many different architectures, from mainframes to server to desktop to
-mobile and on a staggeringly wide variety of hardware.
-Moreover, 80% of hiring managers reported that they will prioritize hiring Linux talent relative to
-other skills areas in the next six months, and 47% of hiring managers saying they are more
+# Course Overview
+
+Develop a good working knowledge of Linux using both the graphical interface and command line, covering the major Linux distribution families.
+Linux powers 100% of the world’s supercomputers, most of the servers powering the Internet, the majority of financial trades worldwide and a billion Android devices. 
+In short, Linux is everywhere. It appears in many different architectures, from mainframes to server to desktop to mobile and on a staggeringly wide variety of hardware.
+Moreover, 80% of hiring managers reported that they will prioritize hiring Linux talent relative to other skills areas in the next six months, and 47% of hiring managers saying they are more
 likely to hire a candidate with Linux certification.
-This course explores the various tools and techniques commonly used by Linux system
-administrators and end users to achieve their day-to-day work in a Linux environment. It is
-designed for experienced computer users who have limited or no previous exposure to Linux,
-whether they are working in an individual or enterprise environment.
-Upon completion of this training you should have a good working knowledge of Linux, from both
-a graphical and command line perspective, allowing you to easily navigate through any of the
-major Linux distributions. You will be able to continue your progress as either a user, system
-administrator or developer using the acquired skill set.
-Join the 800,000+ students who are already enrolled in this course and start your Linux journey
+This course explores the various tools and techniques commonly used by Linux system administrators and end users to achieve their day-to-day work in a Linux environment. It is
+designed for experienced computer users who have limited or no previous exposure to Linux, whether they are working in an individual or enterprise environment.
+Upon completion of this training you should have a good working knowledge of Linux, from both a graphical and command line perspective, allowing you to easily navigate through any of the
+major Linux distributions. You will be able to continue your progress as either a user, system administrator or developer using the acquired skill set.
 
 
-      Prerequisites
+
+#### Prerequisites
+
+
 No previous Linux experience required for this course. However, the course does assume
 familiarity with computers and common software, such as would be had from daily computer
 use.
 
-    Course Length
- 40-60 hours.
+#### Course Length
+
+40-60 hours.
     
     
-    Course Learning Objectives
+### Course Learning Objectives
+
 By the end of this course, you should be able to:
-● Have a good working knowledge of Linux.
-● Navigate through major Linux distributions.
-● Understand configurations and graphical interface of Linux.
-● Use basic command-line operations.
-● Explain common applications of Linux
+
+* Have a good working knowledge of Linux.
+* Navigate through major Linux distributions.
+* Understand configurations and graphical interface of Linux.
+* Use basic command-line operations.
+* Explain common applications of Linux
 
 
-#Course Outline
 
-Chapter 1. The Linux Foundation
-● Introduction and Learning Objectives
-● The Linux Foundation
-● The Linux Foundation Training
-● Course Linux Requirements
-● Knowledge Check (Verified Certificate track only)
-● Learning Objectives (Review) and Summary
+ **Chapter 1. The Linux Foundation**
 
-
-Chapter 2. Linux Philosophy and Concepts
-● Introduction and Learning Objectives
-● Linux History
-● Linux Philosophy
-● Linux Community
-● Linux Terminology
-● Linux Distributions
-● Knowledge Check (Verified Certificate track only)
-● Learning Objectives (Review) and Summary
+* Introduction and Learning Objectives
+* The Linux Foundation
+* The Linux Foundation Training
+* Course Linux Requirements
+* Knowledge Check (Verified Certificate track only)
+* Learning Objectives (Review) and Summary
 
 
-Chapter 3. Linux Basics and System Startup
-● Introduction and Learning Objectives
-● The Boot Process
-● Kernel, init and Services
-● Linux Filesystem Basics
-● Linux Distribution Installation
-● Knowledge Check (Verified Certificate track only)
-● Learning Objectives (Review) and Summary
+**Chapter 2. Linux Philosophy and Concepts**
+
+* Introduction and Learning Objectives
+* Linux History
+* Linux Philosophy
+* Linux Community
+* Linux Terminology
+* Linux Distributions
+* Knowledge Check (Verified Certificate track only)
+* Learning Objectives (Review) and Summary
 
 
-Chapter 4. Graphical Interface
+**Chapter 3. Linux Basics and System Startup**
+
+* Introduction and Learning Objectives
+* The Boot Process
+* Kernel, init and Services
+* Linux Filesystem Basics
+* Linux Distribution Installation
+* Knowledge Check (Verified Certificate track only)
+* Learning Objectives (Review) and Summary
+
+
+**Chapter 4. Graphical Interface**
 ● Introduction and Learning Objectives
 ● Graphical Desktop
 ● Session Management
@@ -78,7 +78,8 @@ Chapter 4. Graphical Interface
 ● Learning Objectives (Review) and Summary
 
 
-Chapter 5. System Configuration from the Graphical Interface
+**Chapter 5. System Configuration from the Graphical Interface**
+
 ● Introduction and Learning Objectives
 ● System, Display, Date and Time Settings
 ● Network Manager
@@ -87,7 +88,8 @@ Chapter 5. System Configuration from the Graphical Interface
 ● Learning Objectives (Review) and Summary
 
 
-Chapter 6. Common Applications
+**Chapter 6. Common Applications**
+
 ● Introduction and Learning Objectives
 ● Internet Applications
 ● Productivity and Development Applications
@@ -97,7 +99,7 @@ Chapter 6. Common Applications
 ● Learning Objectives (Review) and Summary
 
 
-Chapter 7. Command Line Operations
+**Chapter 7. Command Line Operations**
 ● Introduction and Learning Objectives
 ● Command-Line Mode Options
 ● Basic Operations
@@ -108,7 +110,7 @@ Chapter 7. Command Line Operations
 ● Learning Objectives (Review) and Summary
 
 
-Chapter 8. Finding Linux Documentation
+**Chapter 8. Finding Linux Documentation**
 ● Introduction and Learning Objectives
 ● Documentation Sources
 ● The man pages
@@ -119,7 +121,7 @@ Chapter 8. Finding Linux Documentation
 ● Learning Objectives (Review) and Summary
 
 
-Chapter 9. Processes
+**Chapter 9. Processes**
 ● Introduction and Learning Objectives
 ● Introduction to Processes and Process Attributes
 ● Process Metrics and Process Control
@@ -129,7 +131,7 @@ Chapter 9. Processes
 ● Learning Objectives (Review) and Summary
 
 
-Chapter 10. File Operations
+**Chapter 10. File Operations**
 ● Introduction and Learning Objectives
 ● Filesystems
 ● Filesystem Architecture
@@ -139,7 +141,7 @@ Chapter 10. File Operations
 ● Learning Objectives (Review) and Summary
 
 
-Chapter 11. Text Editors
+**Chapter 11. Text Editors**
 ● Introduction and Learning Objectives
 ● Basic Editors: nano and gedit
 ● More Advanced Editors: vi and emacs
@@ -147,7 +149,7 @@ Chapter 11. Text Editors
 ● Learning Objectives (Review) and Summary
 
 
-Chapter 12. User Environment
+**Chapter 12. User Environment**
 ● Introduction and Learning Objectives
 ● Accounts, Users and Groups
 ● Environment Variables
@@ -157,7 +159,7 @@ Chapter 12. User Environment
 ● Learning Objectives (Review) and Summary
 
 
-Chapter 13. Manipulating Text
+**Chapter 13. Manipulating Text**
 ● Introduction and Learning Objectives
 ● cat and echo
 ● Working with Large and Compressed Files
@@ -169,7 +171,7 @@ Chapter 13. Manipulating Text
 ● Learning Objectives (Review) and Summary
 
 
-Chapter 14. Network Operations
+**Chapter 14. Network Operations**
 ● Introduction and Learning Objectives
 ● Network Addresses and DNS
 ● Networking Configuration and Tools
@@ -179,7 +181,7 @@ Chapter 14. Network Operations
 ● Learning Objectives (Review) and Summary
 
 
-Chapter 15. The Bash Shell and Basic Scripting
+**Chapter 15. The Bash Shell and Basic Scripting**
 ● Introduction and Learning Objectives
 ● Features and Capabilities
 ● Syntax
@@ -188,7 +190,7 @@ Chapter 15. The Bash Shell and Basic Scripting
 ● Learning Objectives (Review) and Summary
 
 
-Chapter 16. More on Bash Shell Scripting
+**Chapter 16. More on Bash Shell Scripting**
 ● Introduction and Learning Objectives
 ● String Manipulation
 ● The case Statement
@@ -199,7 +201,7 @@ Chapter 16. More on Bash Shell Scripting
 ● Learning Objectives (Review) and Summary
 
 
-Chapter 17. Printing
+**Chapter 17. Printing**
 ● Introduction and Learning Objectives
 ● Configuration
 ● Printing Operations
@@ -208,7 +210,7 @@ Chapter 17. Printing
 ● Learning Objectives (Review) and Summary
 
 
-Chapter 18. Local Security Principles
+**Chapter 18. Local Security Principles**
 ● Introduction and Learning Objectives
 ● Understanding Linux Security
 ● When Are root Privileges Required?
