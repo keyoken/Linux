@@ -12,14 +12,11 @@ major Linux distributions. You will be able to continue your progress as either 
 
 
 #### Prerequisites
-
-
 No previous Linux experience required for this course. However, the course does assume
 familiarity with computers and common software, such as would be had from daily computer
 use.
 
 #### Course Length
-
 40-60 hours.
     
     
@@ -35,7 +32,7 @@ By the end of this course, you should be able to:
 
 
 
- **Chapter 1. The Linux Foundation**
+## Chapter 1. The Linux Foundation**
 
 * Introduction and Learning Objectives
 * The Linux Foundation
@@ -58,7 +55,6 @@ By the end of this course, you should be able to:
 
 
 **Chapter 3. Linux Basics and System Startup**
-
 * Introduction and Learning Objectives
 * The Boot Process
 * Kernel, init and Services
@@ -77,7 +73,7 @@ By the end of this course, you should be able to:
 ● Learning Objectives (Review) and Summary
 
 
-**Chapter 5. System Configuration from the Graphical Interface**
+** Chapter 5. System Configuration from the Graphical Interface **
 
 ● Introduction and Learning Objectives
 ● System, Display, Date and Time Settings
@@ -218,3 +214,6 @@ By the end of this course, you should be able to:
 ● Securing the Boot Process and Hardware Resources
 ● Knowledge Check (Verified Certificate track only)
 ● Learning Objectives (Review) and Summary
+
+
+
