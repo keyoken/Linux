@@ -1,4 +1,4 @@
-#Course Overview
+##  Course Overview
 Develop a good working knowledge of Linux using both the graphical interface and command
 line, covering the major Linux distribution families.
 Linux powers 100% of the world’s supercomputers, most of the servers powering the Internet,
@@ -17,3 +17,21 @@ a graphical and command line perspective, allowing you to easily navigate throug
 major Linux distributions. You will be able to continue your progress as either a user, system
 administrator or developer using the acquired skill set.
 Join the 800,000+ students who are already enrolled in this course and start your Linux journey
+
+
+      Prerequisites
+No previous Linux experience required for this course. However, the course does assume
+familiarity with computers and common software, such as would be had from daily computer
+use.
+
+    Course Length
+ 40-60 hours.
+    
+    
+    Course Learning Objectives
+By the end of this course, you should be able to:
+● Have a good working knowledge of Linux.
+● Navigate through major Linux distributions.
+● Understand configurations and graphical interface of Linux.
+● Use basic command-line operations.
+● Explain common applications of Linux
