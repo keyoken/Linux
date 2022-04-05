@@ -1,19 +1,15 @@
 # Course Overview
 
 Develop a good working knowledge of Linux using both the graphical interface and command line, covering the major Linux distribution families.
-Linux powers 100% of the world’s supercomputers, most of the servers powering the Internet, the majority of financial trades worldwide and a billion Android devices. In short, Linux is everywhere.
-It appears in many different architectures, from mainframes to server to desktop to mobile and on a staggeringly wide variety of hardware.
-Moreover, 80% of hiring managers reported that they will prioritize hiring Linux talent relative to other skills areas in the next six months, and 47% of hiring managers saying they are more likely to hire a candidate with Linux certification.
-This course explores the various tools and techniques commonly used by Linux system administrators and end users to achieve their day-to-day work in a Linux environment. It is designed for experienced computer users who have limited or no previous exposure to Linux, whether they are working in an individual or enterprise environment.
-Upon completion of this training you should have a good working knowledge of Linux, from both a graphical and command line perspective, allowing you to easily navigate through any of the major Linux distributions. You will be able to continue your progress as either a user, system administrator or developer using the acquired skill set.
+Linux powers 100% of the world’s supercomputers, most of the servers powering the Internet, the majority of financial trades worldwide and a billion Android devices. In short, Linux is everywhere. It appears in many different architectures, from mainframes to server to desktop to mobile and on a staggeringly wide variety of hardware. Moreover, 80% of hiring managers reported that they will prioritize hiring Linux talent relative to other skills areas in the next six months, and 47% of hiring managers saying they are more likely to hire a candidate with Linux certification. This course explores the various tools and techniques commonly used by Linux system administrators and end users to achieve their day-to-day work in a Linux environment. It is designed for experienced computer users who have limited or no previous exposure to Linux, whether they are working in an individual or enterprise environment. Upon completion of this training you should have a good working knowledge of Linux, from both a graphical and command line perspective, allowing you to easily navigate through any of the major Linux distributions. You will be able to continue your progress as either a user, system administrator or developer using the acquired skill set.
 
 
-#### Prerequisites
+### Prerequisites
 No previous Linux experience required for this course. However, the course does assume
 familiarity with computers and common software, such as would be had from daily computer
 use.
 
-#### Course Length
+### Course Length
 40-60 hours.
     
     
@@ -29,7 +25,7 @@ By the end of this course, you should be able to:
 
 
 
-## Chapter 1. The Linux Foundation**
+**Chapter 1. The Linux Foundation**
 
 * Introduction and Learning Objectives
 * The Linux Foundation
@@ -70,7 +66,7 @@ By the end of this course, you should be able to:
 ● Learning Objectives (Review) and Summary
 
 
-** Chapter 5. System Configuration from the Graphical Interface **
+**Chapter 5. System Configuration from the Graphical Interface**
 
 ● Introduction and Learning Objectives
 ● System, Display, Date and Time Settings
