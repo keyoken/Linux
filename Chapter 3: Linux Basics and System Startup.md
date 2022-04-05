@@ -85,13 +85,17 @@ Complicated startup shell scripts are replaced with simpler configuration files,
 One systemd command (systemctl) is used for most basic tasks. While we have not yet talked about working at the command line, here is a brief listing of its use:
 
 Starting, stopping, restarting a service (using nfs as an example) on a currently running system:
+
     ```
-        **$ sudo systemctl start|stop|restart nfs.service**
+       $ sudo systemctl start|stop|restart nfs.service
     ```
+
 Enabling or disabling a system service from starting up at system boot:
+
     ```
-         **$ sudo systemctl enable|disable nfs.service**
+         $ sudo systemctl enable|disable nfs.service
     ```
+
 In most cases, the .service can be omitted. There are many technical differences with older methods that lie beyond the scope of our discussion.
 
 
