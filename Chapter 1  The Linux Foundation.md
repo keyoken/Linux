@@ -1,13 +1,11 @@
 Learning Objectives
 
-
 By the end of this chapter, you should be able to:
 
-
-Discuss the role of The Linux Foundation.
-Appreciate the learning opportunities provided by The Linux Foundation's training program.
-Describe the software environment required for this course.
-Describe the three major Linux distribution families.
+* Discuss the role of The Linux Foundation.
+* Appreciate the learning opportunities provided by The Linux Foundation's training program.
+* Describe the software environment required for this course.
+* Describe the three major Linux distribution families.
 
 
 The Linux Foundation's work today extends far beyond Linux, fostering innovation at every layer of the software stack. 
