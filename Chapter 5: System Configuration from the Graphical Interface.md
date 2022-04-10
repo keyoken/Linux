@@ -32,7 +32,8 @@ The Network Time Protocol (NTP) is the most popular and reliable protocol for se
 ### Lab 5.1: Getting and Setting Screen Resolution
 Note: You can also ascertain your current resolution by typing at the command line:
 
-``` student:/tmp> $ xdpyinfo | grep dim
+``` 
+    student:/tmp> $ xdpyinfo | grep dim
     dimensions: 3200x1080 pixels (847x286 millimeters)
 ```
 
