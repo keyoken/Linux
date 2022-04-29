@@ -102,3 +102,368 @@ The **load average** is the average of the load number for a given period of tim
 NOTE: Linux differs from other UNIX-like operating systems in that it includes the sleeping processes. Furthermore, it only includes so-called uninterruptible sleepers, those which cannot be awakened easily.
 
 The load average can be viewed by running **w, top or uptime**. We will explain the numbers on the next page.
+
+
+### Background and Foreground Processes
+
+Linux supports background and foreground job processing. A job in this context is just a command launched from a terminal window. Foreground jobs run directly from the shell, and when one foreground job is running, other jobs need to wait for shell access (at least in that terminal window if using the GUI) until it is completed. This is fine when jobs complete quickly. But this can have an adverse effect if the current job is going to take a long time (even several hours) to complete.
+
+In such cases, you can run the job in the background and free the shell for other tasks. The background job will be executed at lower priority, which, in turn, will allow smooth execution of the interactive tasks, and you can type other commands in the terminal window while the background job is running. By default, all jobs are executed in the foreground. You can put a job in the background by suffixing & to the command, for example: **updatedb &.**
+
+You can either use **CTRL-Z** to suspend a foreground job or **CTRL-C** to terminate a foreground job and can always use the **bg and fg commands** to run a process in the background and foreground, respectively.
+
+
+### Managing Jobs
+
+The **jobs** utility displays all jobs running in background. The display shows the job ID, state, and command name, as shown here.
+
+**jobs -l** provides the same information as **jobs**, and adds the PID of the background jobs.
+
+The background jobs are connected to the terminal window, so, if you log off, the jobs utility will not show the ones started from that window.
+
+
+
+## Lab 9.1: Getting Uptime and Load Averages
+
+Ascertain how long your system has been up:
+```
+ student:/tmp> uptime
+ 
+10:26:40 up  3:19,  5 users,  load average: 1.46, 1.40, 1.19
+  
+```
+
+A second method is to look at the first line of output from top (to be discussed in detail shortly):
+
+```
+student:/tmp> top | head
+
+top - 10:28:11 up  3:20,  5 users,  load average: 1.93, 1.52, 1.25
+Tasks: 313 total,   1 running, 312 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  1.0 us,  0.3 sy,  0.0 ni, 98.2 id,  0.5 wa,  0.0 hi,  0.0 si,  0.0
+KiB Mem : 16284472 total,  6556792 free,  1029760 used,  8697920 buff/cache
+KiB Swap:  8290300 total,  8290300 free,        0 used. 10364220 avail Mem
+
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+ 2615 coop      20   0  504536 186312  65488 S   6.7  1.1   6:28.30 skype-b+
+18248 coop      20   0  655804  50816  30884 S   6.7  0.3   0:20.11 emacs
+    1 root      20   0  204912   6508   3956 S   0.0  0.0   0:00.92 systemd
+
+```
+
+A third method is to use w:
+```
+student:/tmp> w
+
+ 10:30:51 up  3:23,  5 users,  load average: 0.55, 1.11, 1.14
+USER     TTY      FROM             LOGIN@   IDLE   JCPU   PCPU WHAT
+coop     :0       :0               07:08   ?xdm?  16:51   0.19s gdm-session-
+coop     pts/0    :0               07:09    2:22m  0.12s  0.12s bash
+coop     pts/1    :0               07:09    1:37m  0.42s  0.42s bash
+coop     pts/2    :0               07:09    0.00s 51.09s  0.00s w
+coop     pts/3    :0               07:09   27:08   0.25s  0.25s bash
+
+```
+
+
+## Lab 9.2: Background and Foreground Jobs
+
+We are going to launch a graphical program from a terminal window, so that one can no longer type in the window. gedit is an easy choice, but you can substitute any other program that does this.
+
+The solution file contains a step-by-step procedure for putting jobs in background, bringing them back to foreground, etc. Please repeat the steps, substituting the program you are using if it is not gedit.
+
+1. Open gedit on a new file as in
+```
+$ gedit somefile
+  
+```
+2. While your pointer is over the terminal window, hit CTRL-Z.
+```
+^Z
+      
+[3]+  Stopped                 gedit somefile
+```
+
+3. With jobs -l, see what processes have been launched from this terminal window:
+```
+$ jobs -l
+[1]  17705 Running                 evince *pdf &
+[2]- 18248 Running                 emacs /tmp/hello.tex &
+[3]+ 19827 Stopped                 gedit somefile
+```
+4. Now put the most recent job (gedit somefile) in background:
+```
+$ bg
+[3]+ gedit somefile &
+```
+5. Put the process in foreground again:
+```
+$ fg
+gedit somefile
+```
+6. To clean up, suspend the process again and then use kill to terminate it:
+```
+^Z
+[3]+  Stopped                 gedit somefile
+$ jobs -l
+[1]  17705 Running                 evince *pdf &
+[2]- 18248 Running                 emacs /tmp/hello.tex &
+[3]+ 19827 Stopped                 gedit somefile
+$ kill -9 19827
+$ jobs -l
+[1]  17705 Running                 evince *pdf &
+[2]- 18248 Running                 emacs /tmp/hello.tex &
+[3]+ 19827 Killed                  gedit somefile
+$ jobs -l
+[1]- 17705 Running                 evince *pdf &
+[2]- 18248 Running                 emacs /tmp/hello.tex &
+      
+```
+
+
+### The ps Command (System V Style)
+
+**ps** provides information about currently running processes keyed by PID. If you want a repetitive update of this status, you can use **top** or other commonly installed variants (**such as htop or atop**) from the command line, or invoke your distribution's graphical system monitor application.
+
+**ps** has many options for specifying exactly which tasks to examine, what information to display about them, and precisely what output format should be used.
+
+Without options, **ps** will display all processes running under the current shell. You can use the **-u option to display information of processes for a specified username.** The command **ps -ef displays all the processes in the system in full detail.** The command **ps -eLf goes one step further and displays one line of information for every thread (remember, a process can contain multiple threads).**
+
+
+### The ps Command (BSD Style)
+
+**ps** has another style of option specification, which stems from the **BSD** variety of UNIX, where options are specified without preceding dashes. For example, the command **ps aux displays all processes of all users.** The command **ps axo allows you to specify which attributes you want to view.**
+
+
+### The Process Tree
+
+**pstree** displays the processes running on the system in the form of a tree diagram showing the relationship between a process and its parent process and any other processes that it created. Repeated entries of a process are not displayed, and threads are displayed in curly braces.
+ 
+
+### TOP
+
+While a static view of what the system is doing is useful, monitoring the system performance live over time is also valuable. One option would be to run **ps** at regular intervals, say, every few seconds. A better alternative is to use **top** to get constant real-time updates (every two seconds by default), until you exit by typing **q.top** clearly highlights which processes are consuming the most CPU cycles and memory (using appropriate commands from within **top**).
+
+
+### First Line of the top Output
+
+The first line of the top output displays a quick summary of what is happening in the system, including:
+
+* How long the system has been up
+* How many users are logged on
+* What is the load average
+
+The load average determines how busy the system is. A load average of 1.00 per CPU indicates a fully subscribed, but not overloaded, system. If the load average goes above this value, it indicates that processes are competing for CPU time. If the load average is very high, it might indicate that the system is having a problem, such as a runaway process (a process in a non-responding state).
+
+
+
+### Second Line of the top Output
+
+The second line of the top output displays the total number of processes, the number of running, sleeping, stopped, and zombie processes. Comparing the number of running processes with the load average helps determine if the system has reached its capacity or perhaps a particular user is running too many processes. The stopped processes should be examined to see if everything is running correctly.
+
+
+### Third Line of the top Output
+
+The third line of the top output indicates how the CPU time is being divided between the users (us) and the kernel (sy) by displaying the percentage of CPU time used for each.
+
+The percentage of user jobs running at a lower priority **(niceness - ni)** is then listed. Idle mode **(id)** should be low if the load average is high, and vice versa. The percentage of jobs waiting **(wa) for I/O is listed.** Interrupts include the percentage of hardware **(hi) vs. software interrupts (si). Steal time (st)** is generally used with virtual machines, which has some of its idle CPU time taken for other uses.
+
+### Fourth and Fifth Lines of the top Output
+
+The fourth and fifth lines of the top output indicate memory usage, which is divided in two categories:
+
+Physical memory (RAM) – displayed on line 4.
+Swap space – displayed on line 5.
+Both categories display total memory, used memory, and free space.
+
+You need to monitor memory usage very carefully to ensure good system performance. Once the physical memory is exhausted, the system starts using swap space (temporary storage space on the hard drive) as an extended memory pool, and since accessing disk is much slower than accessing memory, this will negatively affect system performance.
+
+If the system starts using swap often, you can add more swap space. However, adding more physical memory should also be considered.
+
+
+### Process List of the top Output
+
+Each line in the process list of the top output displays information about a process. By default, processes are ordered by highest CPU usage. The following information about each process is displayed:
+
+* Process Identification Number (PID)
+* Process owner (USER)
+* Priority (PR) and nice values (NI)
+* Virtual (VIRT), physical (RES), and shared memory (SHR)
+* Status (S)
+* Percentage of CPU (%CPU) and memory (%MEM) used
+* Execution time (TIME+)
+* Command (COMMAND).
+ 
+ 
+ ### Interactive Keys with top
+ 
+Besides reporting information, **top** can be utilized interactively for monitoring and controlling processes. While top is running in a terminal window, you can enter single-letter commands to change its behavior. For example, you can view the **top-ranked processes based on CPU or memory usage.** If needed, you can alter the priorities of running processes or you can **stop/kill a process.**
+
+The table lists what happens when pressing various keys when running **top**:
+
+
+|   Command   | 	Output  |
+|-------------|-----------|
+|   t 	      |   Display or hide summary information (rows 2 and 3)  |  
+|   m	        |   Display or hide memory information (rows 4 and 5)   |
+|   A	        |   Sort the process list by top resource consumers     |
+|   r         |  	Renice (change the priority of) a specific processes  |
+|   k	        |   Kill a specific process                             |
+|   f         | 	Enter the top configuration screen                  |
+|   o	        |   Interactively select a new sort order in the process list   |
+
+
+### Scheduling Future Processes Using at
+
+Suppose you need to perform a task on a specific day sometime in the future. However, you know you will be away from the machine on that day. How will you perform the task? You can use the at utility program to execute any non-interactive command at a specified time, as illustrated in the screenshot below:
+
+
+### cron
+
+**cron is a time-based scheduling utility program.** It can launch routine background **jobs at specific times and/or days on an on-going basis. cron is driven by a configuration file called /etc/crontab (cron table),** which contains the various shell commands that need to be run at the properly scheduled times. There are both system-wide crontab files and individual user-based ones. Each line of a crontab file represents a job, and is composed of a so-called CRON expression, followed by a shell command to execute.
+
+Typing **crontab -e** will open the crontab editor to edit existing jobs or to create new jobs. Each line of the crontab file will contain 6 fields:
+
+|   Field   |   Description	  |  Values   |
+|-----------|-----------------|-----------|
+|   MIN	    |   Minutes	      |  0 to 59  |
+|   HOUR	  |   Hour field	  | 0 to 23   |
+|   DOM	    |   Day of Month  |    1-31   |
+|   MON	    |   Month field	  |   1-12    |
+|   DOW	    |   Day Of Week	  | 0-6 (0 = Sunday)|
+|   CMD	    |   Command	      | Any command to be executed |
+
+Examples:
+
+**The entry * * * * * /usr/local/bin/execute/this/script.sh** will schedule a job to execute script.sh every minute of every hour of every day of the month, and every month and every day in the week.**
+
+**The entry  30 08 10 06 * /home/sysadmin/full-backup will schedule a full-backup at 8.30 a.m., 10-June, irrespective of the day of the week.**
+
+
+### sleep
+
+Sometimes, a command or job must be delayed or suspended. Suppose, for example, an application has read and processed the contents of a data file and then needs to save a report on a backup system. If the backup system is currently busy or not available, the application can be made to sleep (wait) until it can complete its work. Such a delay might be to mount the backup device and prepare it for writing.
+
+**sleep** suspends execution for at least the specified period of time, which can be given as the number of seconds (the default), minutes, hours, or days. After that time has passed (or an interrupting signal has been received), execution will resume.
+
+The syntax is:
+```
+sleep NUMBER[SUFFIX]...
+
+```
+
+where **SUFFIX** may be:
+
+* s for seconds (the default)
+* m for minutes
+* h for hours
+* d for days.
+
+**sleep and at are quite different; sleep delays execution for a specific period, while at starts execution at a later time.**
+
+
+### Lab 9.3: Using at for Batch Processing in the Future
+
+Schedule a very simple task to run at a future time from now. This can be as simple as running ls or date and saving the output. You can use a time as short as one minute in the future.
+
+Note that the command will run in the directory from which you schedule it with at.
+
+Do this:
+
+1. From a short bash script.
+2. Interactively.
+
+## Lab: Using at for Batch Processing in the Future SOLUTION:
+
+1. Create the file testat.sh containing:
+```
+#!/bin/bash
+date > /tmp/datestamp
+         
+and then make it executable and queue it up with at:
+$ chmod +x testat.sh
+$ at now + 1 minute -f testat.sh
+         
+You can see if the job is queued up to run with atq:
+$ atq
+17	Wed Apr 22 08:55:00 2015 a student
+         
+Make sure the job actually ran:
+$ cat /tmp/datestamp
+Wed Apr 22 08:55:00 CDT 2015
+
+```
+
+2. Interactively it is basically the same procedure. Just queue up the job with:
+```
+$ at now + 1 minute
+at> date > /tmp/datestamp
+CTRL-D
+$ atq
+
+```
+
+
+### Lab 9.4: Scheduling a Periodic Task with cron
+
+Set up a cron job to do some simple task every day at 10 a.m
+
+## SOLUTION:
+```
+Set up a **cron** job to do some simple task every day at 10 AM. Create a file named mycrontab with the following content:
+0 10 * * * /tmp/myjob.sh
+
+and then create /tmp/myjob.sh containing:
+#!/bin/bash
+echo Hello I am running $0 at $(date)
+      
+and make it executable:
+$ chmod +x /tmp/myjob.sh
+
+      
+Put it in the crontab system with:
+$ crontab mycrontab
+      
+and verify it was loaded with:
+$ crontab -l
+0 10 * * * /tmp/myjob.sh
+$ sudo ls -l /var/spool/cron/student
+-rw------- 1 student student 25 Apr 22 09:59 /var/spool/cron/student
+$ sudo cat /var/spool/cron/student
+0 10 * * * /tmp/myjob.sh
+      
+Note if you don't really want this running every day, printing out messages like:
+Hello I am running /tmp/myjob.sh at Wed Apr 22 10:03:48 CDT 2015
+      
+and mailing them to you, you can remove it with:
+$ crontab -r
+      
+If the machine is not up at 10 AM on a given day, anacron will run the job at a suitable time.
+
+```
+
+
+
+## Chapter Summary
+
+You have completed Chapter 9. Let’s summarize the key concepts covered:
+
+* Processes are used to perform various tasks on the system.
+* Processes can be single-threaded or multi-threaded.
+* Processes can be of different types, such as interactive and non-interactive.
+* Every process has a unique identifier (PID) to enable the operating system to keep track of it.
+* The nice value, or niceness, can be used to set priority.
+* ps provides information about the currently running processes.
+* You can use top to get constant real-time updates about overall system performance, as well as information about the processes running on the system.
+* Load average indicates the amount of utilization the system is under at particular times.
+* Linux supports background and foreground processing for a job.
+* at executes any non-interactive command at a specified time.
+* cron is used to schedule tasks that need to be performed at regular intervals.
+
+
+
+
+
+
+
+
