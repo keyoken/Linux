@@ -1,5 +1,5 @@
 
 # Linux 
-### Lfs101x introduction to linu
+### 101x introduction to linu
 
 
