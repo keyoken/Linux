@@ -382,7 +382,8 @@ It would be a good idea to read the man pages for both patch and diff to learn m
 5. Use patch to patch the original file, /tmp/group, so its contents now match those of the modified file, /tmp/GROUP. You might try with the --dry-run option first!
 6. Finally, to prove that your original file is now patched to be the same one with all upper-case characters, use diff on those two files. The files should be the same and you will not get any output from diff.
   
-  ##SOLUTION:
+  ## SOLUTION:
+  
   For this exercise, you could use any text file, but we will use /etc/group as described.
   
 ```
@@ -515,9 +516,7 @@ Some usage examples:
 |   xz foo	  |   Compresses foo into foo.xz using the default compression level (-6), and removes foo if compression succeeds. |
 |   xz -dk bar.xz	 |  Decompresses bar.xz into bar and does not remove bar.xz even if decompression is successful.  |
 |   xz -dcf a.txt b.txt.xz > abcd.txt |   Decompresses a mix of compressed and uncompressed files to standard output, using a single command. |
-|   xz -d *.xz	  |   Decompresses the files compressed using xz. |  
-
-Compressed files are stored with a .xz extension.
+|   xz -d *.xz	  |   Decompresses the files compressed using xz. Compressed files are stored with a .xz extension.   |
   
   
   
