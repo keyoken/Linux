@@ -520,3 +520,77 @@ Some usage examples:
   
   
   
+  ### Handling Files Using zip
+  
+  The zip program is not often used to compress files in Linux, but is often required to examine and decompress archives from other operating systems. It is only used in Linux when you get a zipped file from a Windows user. It is a legacy program.
+  
+  
+  
+|   Command	        |   Usage        |
+|------------------------------------|
+|   zip backup * 	  |   Compresses all files in the current directory and places them in the backup.zip.    |
+|   zip -r backup.zip ~	  |   Archives your login directory (~) and all files and directories under it in backup.zip.   |
+|   unzip backup.zip	    |   Extracts all files in backup.zip and places them in the current directory.    |
+  
+  
+  
+ 
+### Archiving and Compressing Data Using tar
+  
+Historically, tar stood for "tape archive" and was used to archive files to a magnetic tape. It allows you to create or extract files from an archive file, often called a tarball. At the same time, you can optionally compress while creating the archive, and decompress while extracting its contents.
+
+Here are some examples of the use of tar:
+  
+|   Command	                |   Usage         |
+|---------------------------|-----------------|
+| tar xvf mydir.tar	        |   Extract all the files in mydir.tar into the mydir directory.    |
+| tar zcvf mydir.tar.gz mydir	|   Create the archive and compress with gzip.    |
+| tar jcvf mydir.tar.bz2 mydir	  |   Create the archive and compress with bz2.   |
+| tar Jcvf mydir.tar.xz mydir	    |   Create the archive and compress with xz.    |
+| tar xvf mydir.tar.gz	    |   Extract all the files in mydir.tar.gz into the mydir directory.   |
+
+  **NOTE: You do not have to tell tar it is in gzip format.**
+  
+```  
+You can separate out the archiving and compression stages, as in:
+
+$ tar cvf mydir.tar mydir ; gzip mydir.tar
+$ gunzip mydir.tar.gz ; tar xvf mydir.tar
+
+but this is slower and wastes space by creating an unneeded intermediary .tar file.
+```
+  
+  
+###  Relative Compression Times and Sizes
+ 
+To demonstrate the relative efficiency of gzip, bzip2, and xz, the following screenshot shows the results of compressing a purely text file directory tree (the include directory from the kernel source) using the three methods.
+
+This shows that as compression factors go up, CPU time does as well **(i.e. producing smaller archives takes longer).**
+  
+  
+  ###  Disk-to-Disk Copying (dd)
+  
+The **dd program** is very useful for making copies of raw disk space. For example, to back up your Master Boot Record (MBR) (the first 512-byte sector on the disk that contains a table describing the partitions on that disk), you might type:
+```
+dd if=/dev/sda of=sda.mbr bs=512 count=1
+```
+**WARNING!**
+
+Typing:
+```
+dd if=/dev/sda of=/dev/sdb
+
+to make a copy of one disk onto another, will delete everything that previously existed on the second disk.
+
+An exact copy of the first disk device is created on the second disk device.
+```
+**Do not experiment with this command as written above, as it can erase a hard disk!**
+
+Exactly what the name **dd** stands for is an often-argued item. The words data definition is the most popular theory and has roots in early IBM history. Often, people joke that it means disk destroyer and other variants such as delete data!
+  
+  
+  
+###  Lab 10.3: Archiving (Backing Up) the Home Directory
+  
+  
+  
